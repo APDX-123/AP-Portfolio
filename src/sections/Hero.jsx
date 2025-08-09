@@ -51,8 +51,8 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Adrian, a developer based in Croatia with a passion for
-              code.
+              Hi, I’m Aryan, a developer based in Az with a passion for
+              software.
             </p>
 
             <Button
@@ -64,14 +64,21 @@ const Hero = () => {
         </header>
 
         {/* RIGHT: 3D Model or Visual */}
-        <figure>
-          <div className="hero-3d-layout">
-            <HeroExperience />
-          </div>
-        </figure>
+     {/* RIGHT: Image in Diamond Shape */}
+<figure>
+  <div className="hero-3d-layout flex justify-center items-center">
+    <div className="relative w-130 h-130 rotate-45 overflow-hidden rounded-lg shadow-lg">
+      <img
+        src="/images/SuitAryan.png"
+        alt="Aryan in suit"
+        className="-rotate-45 object-cover w-full h-full"
+      />
+    </div>
+  </div>
+</figure>
+
       </div>
 
-      <AnimatedCounter />
     </section>
   );
 };

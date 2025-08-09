@@ -7,28 +7,42 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AppShowcase = () => {
   const sectionRef = useRef(null);
+  const titleRef = useRef(null);
   const rydeRef = useRef(null);
   const libraryRef = useRef(null);
   const ycDirectoryRef = useRef(null);
 
   useGSAP(() => {
-    // Animation for the main section
+    // Fade in section
     gsap.fromTo(
       sectionRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 1.5 }
     );
 
-    // Animations for each app showcase
+    // Animate title
+    gsap.fromTo(
+      titleRef.current,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top bottom-=100",
+        },
+      }
+    );
+
+    // Animate each project
     const cards = [rydeRef.current, libraryRef.current, ycDirectoryRef.current];
 
     cards.forEach((card, index) => {
       gsap.fromTo(
         card,
-        {
-          y: 50,
-          opacity: 0,
-        },
+        { y: 50, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -46,18 +60,25 @@ const AppShowcase = () => {
   return (
     <div id="work" ref={sectionRef} className="app-showcase">
       <div className="w-full">
+        {/* Title */}
+        <h1
+          ref={titleRef}
+          className="text-4xl md:text-6xl font-bold text-center mb-12 text-white"
+        >
+          My Work
+        </h1>
+
         <div className="showcaselayout">
           <div ref={rydeRef} className="first-project-wrapper">
             <div className="image-wrapper">
-              <img src="/images/project1.png" alt="Ryde App Interface" />
+              <img src="/images/gallery.jpg" alt="Lux" />
             </div>
             <div className="text-content">
               <h2>
-                On-Demand Rides Made Simple with a Powerful, User-Friendly App
-                called Ryde
+                Lux: Your AI-Powered Wardrobe Wingman 
               </h2>
               <p className="text-white-50 md:text-xl">
-                An app built with React Native, Expo, & TailwindCSS for a fast,
+                An app built with Next.js, Gemini Multimodal AI, & Flask for a fast,
                 user-friendly experience.
               </p>
             </div>
@@ -67,18 +88,18 @@ const AppShowcase = () => {
             <div className="project" ref={libraryRef}>
               <div className="image-wrapper bg-[#FFEFDB]">
                 <img
-                  src="/images/project2.png"
+                  src="/images/Lebron.png"
                   alt="Library Management Platform"
                 />
               </div>
-              <h2>The Library Management Platform</h2>
+              <h2>HiveMind: AI Powered Collaborative Zoom Sessions</h2>
             </div>
 
             <div className="project" ref={ycDirectoryRef}>
               <div className="image-wrapper bg-[#FFE7EB]">
-                <img src="/images/project3.png" alt="YC Directory App" />
+                <img src="/images/original.png" alt="YC Directory App" />
               </div>
-              <h2>YC Directory - A Startup Showcase App</h2>
+              <h2>WorkNest: AI Powered Desktop Productivity</h2>
             </div>
           </div>
         </div>
