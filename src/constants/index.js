@@ -171,7 +171,7 @@ const expCards = [
   {
     review: "I worked on analyzing DNA sequences of Frankia bacteria and using data science to organize and visualize that data and make research findings with it.",
     logoPath: "/images/ncgr.jpeg",
-    title: "React Native Developer",
+    title: "Research Assistant",
     date: "June 2022 - May 2022",
     responsibilities: [
       "Analyzed 200,000+ Frankia bacterial DNA sequences using R and Bash, generating visual reports and summary tables that contributed to a peer-reviewed bioinformatics publication.",
